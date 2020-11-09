@@ -1,5 +1,7 @@
 package greatui.backend.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,5 +25,9 @@ public class BackendService {
 	
 	public User createUser(User u) {
 		return userR.save(u);
+	}
+	
+	public List<User> getAllUsers() {
+		return userR.findAll();
 	}
 }
