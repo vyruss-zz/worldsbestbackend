@@ -3,6 +3,7 @@ package greatui.backend.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import greatui.backend.models.User;
 import greatui.backend.repo.RegisteredRepo;
 import greatui.backend.repo.UserRepo;
 
@@ -21,6 +22,6 @@ public class BackendService {
 	}
 	
 	public User createUser(User u) {
-		userR.save(u);
+		return userR.save(u);
 	}
 }
