@@ -50,7 +50,7 @@ public class BackendController {
 		return reg;
 	}
 	
-	@GetMapping("/getRegistered")
+	@PostMapping("/getRegistered")
 	public RegisteredUser getRegistered(User u) {
 		User user = bs.getUserByUsername(u.getUsername());
 		if(user == null || !user.getPassword().equals(u.getPassword())) {
