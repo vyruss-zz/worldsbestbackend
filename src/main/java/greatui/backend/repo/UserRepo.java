@@ -14,4 +14,5 @@ import greatui.backend.models.User;
 public interface UserRepo extends CrudRepository<User, Integer> {
 	public User save(User user);
 	public List<User> findAll();
+	public User findByUsername(String username);
 }

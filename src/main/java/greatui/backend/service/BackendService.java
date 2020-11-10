@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import greatui.backend.models.RegisteredUser;
 import greatui.backend.models.User;
 import greatui.backend.repo.RegisteredRepo;
 import greatui.backend.repo.UserRepo;
@@ -29,5 +30,21 @@ public class BackendService {
 	
 	public List<User> getAllUsers() {
 		return userR.findAll();
+	}
+	
+	public User getUserByUsername(String username) {
+		return userR.findByUsername(username);
+	}
+	
+	public RegisteredUser updateRegUser(RegisteredUser regUser) {
+		return regR.save(regUser);
+	}
+	
+	public RegisteredUser createRegisteredUser(RegisteredUser regUser) {
+		return regR.save(regUser);
+	}
+	
+	public User updateUser(User u) {
+		return userR.save(u);
 	}
 }
