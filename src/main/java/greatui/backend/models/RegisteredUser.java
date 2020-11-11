@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Generated;
@@ -23,7 +25,7 @@ public class RegisteredUser {
 
 	@Id
 	@Column(name="registeredid")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int registeredid;
 	
 	@Column(name="favorite_food")
@@ -41,6 +43,7 @@ public class RegisteredUser {
 	@Column(name="favorite_palindrome")
 	private String favoritePalindrome;
 	
+	@JsonBackReference
 	@OneToOne
 	private User myUser;
 }

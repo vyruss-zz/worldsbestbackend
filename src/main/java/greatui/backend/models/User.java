@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Generated;
@@ -25,7 +27,7 @@ public class User {
 
 	@Id
 	@Column(name = "userid")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int userid;
 	
 	@Column(name="username", nullable=false, unique=true)
@@ -37,6 +39,7 @@ public class User {
 	@Column(name="date_registered")
 	private Date dateRegistered;
 	
+	@JsonManagedReference
 	@OneToOne(mappedBy="myUser")
 	private RegisteredUser reg;
 }
