@@ -43,9 +43,15 @@ public class BackendController {
 	
 	@PostMapping("/createRegisteredUser")
 	public RegisteredUser createRegUser(@RequestBody RegisteredUser regUser) {
+		System.out.println(regUser);
 		User u = regUser.getMyUser();
+		System.out.println(u);
 		RegisteredUser reg = bs.createRegisteredUser(regUser);
-		u.setReg(regUser);
+		System.out.println(reg);
+//		User u = reg.getMyUser();
+		u.setReg(reg);
+		System.out.println(u);
+		
 		bs.updateUser(u);
 		return reg;
 	}
