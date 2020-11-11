@@ -57,7 +57,7 @@ public class BackendController {
 	}
 	
 	@PostMapping("/getRegistered")
-	public RegisteredUser getRegistered(User u) {
+	public RegisteredUser getRegistered(@RequestBody User u) {
 		User user = bs.getUserByUsername(u.getUsername());
 		if(user == null || !user.getPassword().equals(u.getPassword())) {
 			return new RegisteredUser(-1, "Invalid Password", "", "", "", "", null);
