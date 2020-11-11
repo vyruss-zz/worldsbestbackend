@@ -4,6 +4,8 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -23,6 +25,7 @@ public class User {
 
 	@Id
 	@Column(name = "userid")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int userid;
 	
 	@Column(name="username", nullable=false, unique=true)
