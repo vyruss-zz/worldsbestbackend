@@ -22,6 +22,7 @@ import lombok.NoArgsConstructor;
 public class User {
 
 	@Id
+	@Column(name = "userid")
 	private int userid;
 	
 	@Column(name="username", nullable=false, unique=true)
