@@ -38,7 +38,13 @@ public class BackendController {
 	
 	@PostMapping("/updateRegisteredUser")
 	public RegisteredUser updateRegistered(@RequestBody RegisteredUser regUser) {
-		return bs.updateRegUser(regUser);
+		RegisteredUser reg = bs.getRegisteredById(regUser.getRegisteredid());
+		reg.setFavoriteColor(regUser.getFavoriteColor());
+		reg.setFavoriteFood(regUser.getFavoriteFood());
+		reg.setFavoritePalindrome(regUser.getFavoritePalindrome());
+		reg.setFavoritePet(regUser.getFavoritePet());
+		reg.setZodiacSign(regUser.getZodiacSign());
+		return bs.updateRegUser(reg);
 	}
 	
 	@PostMapping("/createRegisteredUser")

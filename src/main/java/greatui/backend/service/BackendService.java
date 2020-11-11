@@ -24,6 +24,10 @@ public class BackendService {
 		this.userR = userR;
 	}
 	
+	public RegisteredUser getRegisteredById(int id) {
+		return regR.findByRegisteredid(id);
+	}
+	
 	public User createUser(User u) {
 		return userR.save(u);
 	}

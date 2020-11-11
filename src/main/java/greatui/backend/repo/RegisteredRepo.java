@@ -11,4 +11,5 @@ import greatui.backend.models.RegisteredUser;
 @Repository
 public interface RegisteredRepo extends CrudRepository<RegisteredUser, Integer>{
 	public RegisteredUser save(RegisteredUser ruser);
+	public RegisteredUser findByRegisteredid(int id);
 }
